@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<title>Solve Another Cryptogram</title>
+<meta charset="UTF-8"> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="cryptostyle.css">
+<script type="text/javascript" src="ourpuzzles.js"></script>
+</head>
+<body>
+<div id="heading"><a href="index.html"><img src="cryptofun.png" alt="logo"></a><br>
+	<a href="index.html">Home</a> | <a href="ourpuzzles.html">Our Puzzles</a> | <a href="their.html">Their puzzles</a> | <a href="create.html">Create Your Own</a>
+</div>
+<script type="text/javascript">
+$(document).on('keyup', 'input', function() {
+	var value=$(this).val();
+	var regtest=/^[a-zA-Z\s]*$/;
+	if (regtest.test(value)){
+		var fieldclass=$(this).closest('input').attr('class');
+		updateLetters(value, fieldclass);
+	}
+	else {
+		var warning="Sorry, but that is not a valid entry.";
+		alert(warning);
+	}
+});
+</script>
+<div id="puzzle">
+	<form id="theirpuzzle">
+		<label for="external">Enter a cryptogram to solve: </label>
+		<textarea name="external" id="external"></textarea> <br>
+		<input type="submit" id="submit" value="Submit"> 
+		<input type="reset" id="reset" value="Reset" onclick="this.form.reset">
+	</form>
+</div>
+<script type="text/javascript">
+$("form").submit(function(event){
+	var regtest=/[^A-Za-z0-9 .';?!,@$#\-_]/;
+	var value=document.getElementById("external").value;
+	if (!regtest.test(value)){
+		maketheirpuzzle(value.trim());
+	}else {
+		alert("Please stick to simple punctation, including commas and periods.");
+	}
+	event.preventDefault();
+});
+</script>
+<div id="helps" style="display:none;">
+	<a href="javascript:resetpuzzle();" class="button" id="reset">Reset Puzzle</a>
+</div>
+</body>

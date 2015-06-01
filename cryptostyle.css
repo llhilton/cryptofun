@@ -1,0 +1,101 @@
+body{text-align:center;
+	background-color: #EEEEEE;
+}
+
+#intro{
+	text-align: left;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media print {
+    #puzzle {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+	#heading {
+		display: none;
+	}
+	#footer{
+		display: none;
+	}
+}
+
+#footer{
+	clear: both;
+}
+#heading{
+	margin-bottom: 10px;
+}
+#heading a:link{
+	color: blue;
+	text-decoration: none;
+}
+#heading a:visited{
+	color: blue;
+	text-decoration: none;
+}
+#heading a:hover{
+	color: green;
+	text-decoration: underline;
+}
+
+.gram{
+	float: left;
+	margin-right: 1em;
+}
+
+#puzzle{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	width: 80%;
+}
+
+input{
+	width: 1.2em;
+	border: 1px solid black;
+}
+
+#submit {
+	width: 10%;
+	margin-top: 10px;
+}
+#reset {
+	width: 10%;
+}
+
+#helps{
+	clear: both;
+	margin: 2px;
+	padding: 2px;
+}
+
+td{
+	width: 1.5em;
+	text-align: center;
+	border: none;
+}
+
+.button{
+	border: 2px blue outset;
+	color: blue;
+	width: auto;
+	margin: 1em;
+	padding: 2px;
+	text-decoration: none;
+}
+
+textarea{
+	width: 80%;
+}

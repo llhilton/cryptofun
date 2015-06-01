@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<title>Create Your Own Cryptogram</title>
+<meta charset="UTF-8"> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="cryptostyle.css">
+<script type="text/javascript" src="ourpuzzles.js"></script>
+</head>
+<body>
+<div id="heading"><a href="index.html"><img src="cryptofun.png" alt="logo"></a><br>
+	<a href="index.html">Home</a> | <a href="ourpuzzles.html">Our Puzzles</a> | <a href="their.html">Their puzzles</a> | <a href="create.html">Create Your Own</a>
+</div>
+<div id="puzzle">
+	<form id="getquote">
+		<label for="createquote">Enter a quote to turn into a cryptogram: </label>
+		<textarea name="createquote" id="createquote"></textarea> <br>
+		<input type="submit" id="submit" value="Submit"> 
+		<input type="reset" id="reset" value="Reset" onclick="this.form.reset">
+	</form>
+</div>
+<script type="text/javascript">
+$("form").submit(function(event){
+	var regtest=/[^A-Za-z0-9 .';?!,@$#\-_]/;
+	var value=document.getElementById("createquote").value;
+	if (!regtest.test(value)){
+		createtoprint(value.trim());
+	}else {
+		alert("Please stick to simple punctation, including commas and periods.");
+	}
+	event.preventDefault();
+});
+</script>
+<div id="footer">
+<p>This page can be printed by your browser to distribute to others to solve.</p>
+</div>
+</body>

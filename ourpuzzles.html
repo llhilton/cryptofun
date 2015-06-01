@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+<title>Our Puzzles</title>
+<meta charset="UTF-8"> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="cryptostyle.css">
+<script type="text/javascript" src="ourpuzzles.js"></script>
+</head>
+<body>
+<div id="heading"><a href="index.html"><img src="cryptofun.png" alt="logo"></a><br>
+	<a href="index.html">Home</a> | <a href="ourpuzzles.html">Our Puzzles</a> | <a href="their.html">Their puzzles</a> | <a href="create.html">Create Your Own</a>
+</div>
+<script type="text/javascript">
+$(document).on('keyup', 'input', function() {
+	var value=$(this).val();
+	var regtest=/^[a-zA-Z\s]*$/;
+	if (regtest.test(value)){
+		var fieldclass=$(this).closest('input').attr('class');
+		updateLetters(value, fieldclass);
+	}
+	else {
+		var warning="Sorry, but that is not a valid entry.";
+		alert(warning);
+	}
+});
+</script>
+<div id="puzzle">
+	<script type="text/javascript">
+		loadJSON();
+	</script>
+<p>Please be patient while our code monks fetch you a puzzle.</p>
+</div>
+<div id="helps">
+	<a href="javascript:resetpuzzle();" class="button" id="reset">Reset Puzzle</a>
+	<a href="javascript:checkpuzzle();" class="button" id="check">Check Puzzle</a>
+	<a href="javascript:clearwrong();" class="button" id="check">Clear Wrong Answers</a>
+	<a href="javascript:hint();" class="button" id="check">Hint</a>
+	<a href="javascript:solve();" class="button" id="check">Solve Puzzle</a>
+	<a href="javascript:location.reload();" class="button" id="check">New Puzzle</a>
+</div>
+</body>
